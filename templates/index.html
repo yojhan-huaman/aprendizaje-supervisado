@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Bienvenido al Sistema de Análisis Estudiantil</h2>
+    <p>Este sistema permite registrar, analizar y predecir el estado de los estudiantes, utilizando datos sobre su rendimiento académico, asistencia y participación. Gracias a nuestros modelos predictivos, podrás saber si un estudiante está en riesgo de desaprobar o si tiene probabilidades de aprobar.</p>
+
+    <div class="row">
+      <div class="col-md-6">        
+        <h4>¿Qué puedes hacer aquí?</h4>
+        <ul>
+          <li><strong>Registrar Estudiantes:</strong> Ingresa los datos de los estudiantes para hacer un seguimiento de su desempeño académico.</li>
+          <li><strong>Entrenamiento de Modelos:</strong> Utiliza los datos registrados para entrenar modelos de clasificación y generar predicciones.</li>
+          <li><strong>Generar Predicciones:</strong> Con los modelos entrenados, predice el estado futuro de un estudiante.</li>
+          <li><strong>Ver Resultados:</strong> Consulta los resultados del entrenamiento de los modelos, visualizando las distribuciones y análisis de datos.</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <h4>¿Cómo funciona?</h4>
+        <p>El sistema utiliza técnicas de aprendizaje automático para analizar el rendimiento de los estudiantes. Los datos ingresados como el promedio de notas, asistencia y participación se utilizan para predecir si un estudiante está en riesgo de desaprobar. Los resultados de las predicciones se basan en modelos entrenados previamente con los datos existentes.</p>
+        <ul>
+            <li><a href="{{ url_for('registro') }}">Registrar Estudiantes</a></li>
+            <li><a href="{{ url_for('ver_datos') }}">Ver Datos Generados</a></li>
+            <li><a href="{{ url_for('resultados') }}">Ver Resultados del Modelo</a></li>
+            <li><a href="{{ url_for('prediccion') }}">Realizar Predicción</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Datos y Estadísticas</h3>
+    <p>Accede a los datos de los estudiantes registrados, revisa las estadísticas detalladas y visualiza los resultados del análisis predictivo.</p>
+
+    <h4>¿Tienes alguna duda?</h4>
+    <p>Consulta el documento de ayuda o ponte en contacto con el administrador para más información.</p>
+  </div>
+{% endblock %}

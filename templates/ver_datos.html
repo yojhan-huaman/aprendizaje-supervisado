@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2>Datos de Estudiantes</h2>
+    <div>
+      {% for tabla in tablas %}
+        {{ tabla | safe }}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

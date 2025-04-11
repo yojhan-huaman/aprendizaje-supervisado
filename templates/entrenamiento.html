@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Entrenamiento de Modelos{% endblock %}
+
+{% block content %}
+<h2>Entrenar modelos de predicción</h2>
+<form method="POST" action="{{ url_for('entrenamiento') }}">
+    <button type="submit">Iniciar entrenamiento</button>
+</form>
+
+{% if metricas %}
+    <h3>Resultados del entrenamiento:</h3>
+    <ul>
+        {% for modelo, score in metricas.items() %}
+            <li><strong>{{ modelo }}</strong>: {{ score }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if imagenes %}
+    <h3>Visualizaciones:</h3>
+    {% for img in imagenes %}
+        <img src="{{ url_for('static', filename=img) }}" alt="Visualización">
+    {% endfor %}
+{% endif %}
+{% endblock %}

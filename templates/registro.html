@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Registro de Estudiantes{% endblock %}
+
+{% block content %}
+<h2>Registrar Estudiante</h2>
+<form action="{{ url_for('registro') }}" method="POST">
+    
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="asistencia">Asistencia:</label>
+    <select id="asistencia" name="asistencia" required>
+        <option value="Presente">Presente</option>
+        <option value="Ausente">Ausente</option>
+    </select>
+
+    <div id="notas_fields" style="display:block;">
+        <!-- Asistencia y notas en Matemática -->
+        <div class="form-group">
+            <label for="matematica">Nota en Matemática:</label>
+            <input type="number" step="0.01" name="matematica" id="matematica" class="form-control" min="0" max="20" required>
+        </div>
+
+        <!-- Asistencia y notas en Comunicación -->
+        <div class="form-group">
+            <label for="comunicacion">Nota en Comunicación:</label>
+            <input type="number" step="0.01" name="comunicacion" id="comunicacion" class="form-control" min="0" max="20" required>
+        </div>
+
+        <!-- Asistencia y notas en Ciencia y Tecnología -->
+        <div class="form-group">
+            <label for="ciencia_y_tecnologia">Nota en Ciencia y Tecnología:</label>
+            <input type="number" step="0.01" name="ciencia_y_tecnologia" id="ciencia_y_tecnologia" class="form-control" min="0" max="20" required>
+        </div>
+
+        <!-- Asistencia y notas en Personal Social -->
+        <div class="form-group">
+            <label for="personal_social">Nota en Personal Social:</label>
+            <input type="number" step="0.01" name="personal_social" id="personal_social" class="form-control" min="0" max="20" required>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar Estudiante</button>
+</form>
+
+<script>
+    document.getElementById('asistencia').addEventListener('change', function() {
+        var asistencia = this.value;
+        var notasFields = document.getElementById('notas_fields');
+        if (asistencia === 'Ausente') {
+            notasFields.style.display = 'none'; // Ocultar los campos de notas
+        } else {
+            notasFields.style.display = 'block'; // Mostrar los campos de notas
+        }
+    });
+</script>
+
+{% endblock %}

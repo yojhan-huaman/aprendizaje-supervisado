@@ -1,0 +1,161 @@
+/* Global settings for the entire page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Fondo oscuro */
+    color: #E0E0E0; /* Texto claro */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Para asegurar que el body ocupe toda la altura de la pantalla */
+}
+
+main{
+    min-width: 100vh;
+}
+
+header {
+    background-color: #1E3A8A; /* Color más oscuro para el header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0; /* No permite que el header se reduzca al cambiar el tamaño */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content area */
+main {
+    padding: 30px;
+    background-color: #1E1E1E; /* Fondo oscuro para el main */
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3); /* Sombra más sutil */
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Añadimos margen inferior para separar del footer */
+    flex: 1; /* Esto hace que el main se expanda y ocupe el espacio restante */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #E0E0E0; /* Color claro para las etiquetas */
+}
+
+input, select, button {
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #444; /* Borde oscuro */
+    background-color: #333; /* Fondo oscuro para los inputs */
+    color: #E0E0E0; /* Texto claro dentro de los inputs */
+}
+
+button {
+    background-color: #1976d2; /* Color de fondo para el botón */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1565c0;
+}
+
+/* Footer */
+footer {
+    background-color: #212121; /* Fondo más oscuro para el footer */
+    color: #E0E0E0; /* Texto claro */
+    padding: 40px 20px; /* Aumentamos la altura del footer */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    flex-shrink: 0; /* Evita que el footer se reduzca */
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+footer ul li {
+    margin: 5px 0;
+}
+
+footer ul li a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Centrado de texto en las celdas de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Hace que las celdas se alineen sin espacios entre ellas */
+    text-align: center; /* Centra el texto en todas las celdas */
+}
+
+th, td {
+    padding: 12px; /* Añade padding para que las celdas tengan más espacio */
+    border: 1px solid #444; /* Agrega borde oscuro a las celdas */
+}
+
+th {
+    background-color: #1E3A8A; /* Color de fondo para las cabeceras */
+    color: white; /* Color de texto para las cabeceras */
+}
+
+td {
+    background-color: #2E2E2E; /* Fondo oscuro para las celdas de datos */
+    color: #E0E0E0; /* Texto claro para las celdas de datos */
+}
+
+/* Colores específicos para el estado */
+td.estado-aprobado {
+    background-color: #81C784; /* Verde claro para Aprobado */
+    color: white; /* Texto blanco */
+}
+
+td.estado-desaprobado {
+    background-color: #EF5350; /* Rojo claro para Desaprobado */
+    color: white; /* Texto blanco */
+}
+
+/* Opcional: agregar un borde redondeado */
+table {
+    border-radius: 10px;
+    overflow: hidden; /* Asegura que los bordes redondeados sean visibles */
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema de Análisis de Estudiantes{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{% block header %}Bienvenido al sistema{% endblock %}</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('registro') }}">Registro de Estudiantes</a></li>
+                <li><a href="{{ url_for('ver_datos') }}">Ver Datos Generados</a></li>
+                <li><a href="{{ url_for('resultados') }}">Resultados del Modelo</a></li>
+                <li><a href="{{ url_for('prediccion') }}">Realizar Predicción</a></li>
+            </ul>
+        </nav>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Desarrollado por:</p>
+        <ul>
+            <li>Ingeniera Angela</li>
+            <li>Ingeniero Barrientos</li>
+            <li>Semi semi tecnico Yojhan</li>
+        </ul>
+        <p>&copy; 2025 Sistema de Análisis de Estudiantes. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

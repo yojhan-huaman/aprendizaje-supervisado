@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Predicción del Estado{% endblock %}
+
+{% block content %}
+<h2>Predicción del Estado del Estudiante</h2>
+
+{% if prediccion %}
+    <p>El estado predicho del estudiante es: <strong>{{ prediccion }}</strong></p>
+{% else %}
+    <form action="{{ url_for('prediccion') }}" method="POST">
+        <div class="form-group">
+            <label for="asistencia">Asistencia:</label>
+            <select name="asistencia" id="asistencia" class="form-control" required onchange="toggleNotas()">
+                <option value="Presente" selected>Presente</option>
+                <option value="Ausente">Ausente</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="matematica">Nota en Matemática:</label>
+            <input type="number" name="matematica" id="matematica" class="form-control" step="0.01" min="0" max="20" required oninput="calcularPromedio()">
+        </div>
+
+        <div class="form-group">
+            <label for="comunicacion">Nota en Comunicación:</label>
+            <input type="number" name="comunicacion" id="comunicacion" class="form-control" step="0.01" min="0" max="20" required oninput="calcularPromedio()">
+        </div>
+
+        <div class="form-group">
+            <label for="ciencia_y_tecnologia">Nota en Ciencia y Tecnología:</label>
+            <input type="number" name="ciencia_y_tecnologia" id="ciencia_y_tecnologia" class="form-control" step="0.01" min="0" max="20" required oninput="calcularPromedio()">
+        </div>
+
+        <div class="form-group">
+            <label for="personal_social">Nota en Personal Social:</label>
+            <input type="number" name="personal_social" id="personal_social" class="form-control" step="0.01" min="0" max="20" required oninput="calcularPromedio()">
+        </div>
+
+        <div class="form-group">
+            <label for="promedio">Promedio:</label>
+            <input type="number" name="promedio" id="promedio" class="form-control" step="0.01" readonly tabindex="-1" style="background-color: #e9ecef; pointer-events: none;">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Realizar Predicción</button>
+    </form>
+{% endif %}
+
+<script>
+    function toggleNotas() {
+        var asistencia = document.getElementById("asistencia").value;
+        var campos = ["matematica", "comunicacion", "ciencia_y_tecnologia", "personal_social"];
+        var disabled = asistencia === "Ausente";
+    
+        campos.forEach(function(campo) {
+            document.getElementById(campo).disabled = disabled;
+        });
+    
+        // Bloquea promedio siempre
+        document.getElementById("promedio").readOnly = true;
+        document.getElementById("promedio").style.pointerEvents = "none";
+        document.getElementById("promedio").tabIndex = -1;
+    }    
+
+    function calcularPromedio() {
+        var campos = ["matematica", "comunicacion", "ciencia_y_tecnologia", "personal_social"];
+        var suma = 0;
+        var cantidad = 0;
+
+        campos.forEach(function(campo) {
+            var valor = parseFloat(document.getElementById(campo).value);
+            if (!isNaN(valor)) {
+                suma += valor;
+                cantidad += 1;
+            }
+        });
+
+        var promedio = cantidad > 0 ? (suma / cantidad).toFixed(2) : "";
+        document.getElementById("promedio").value = promedio;
+    }
+
+    toggleNotas();  // Al iniciar
+</script>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Resultados del Modelo{% endblock %}
+
+{% block content %}
+<h2>Resultados del Entrenamiento del Modelo</h2>
+<p>Aquí se muestran los resultados de los modelos entrenados.</p>
+<img src="{{ url_for('static', filename='estado_distribucion.png') }}" alt="Distribución de Estados" class="img-fluid">
+<img src="{{ url_for('static', filename='promedio_estado.png') }}" alt="Promedio por Estado" class="img-fluid">
+{% endblock %}
